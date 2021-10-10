@@ -1,6 +1,3 @@
-from typing import Tuple
-
-import numpy as np
 from numpy import random
 
 
@@ -23,7 +20,7 @@ class Arm:
 
     def __update_estimate(self, R):
         self.num_of_pull += 1
-        self.Q = self.Q + (1.0/self.num_of_pull) * (R - self.Q)
+        self.Q = self.Q + (1.0 / self.num_of_pull) * (R - self.Q)
 
 
 class Stand:
@@ -31,6 +28,7 @@ class Stand:
     def __init__(self, Q, rewards):
         self.Q = Q
         self.rewards = rewards
+        self.initialize()
 
     def initialize(self):
-        self.arms = [Arm(i, q, self.Q) for i, q in enumerate(range(self.rewards))]
+        self.arms = [Arm(i, q, self.Q) for i, q in enumerate(self.rewards)]

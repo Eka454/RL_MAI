@@ -17,12 +17,14 @@ class Agent:
     def run(self, num_exps, num_steps):
 
         for e in range(num_exps):
-            self.stand.initialize()
             for s in range(num_steps):
                 arm = self.__pull()
                 reward = arm.reward()
 
                 self.stats.record(e, s, arm.num, reward)
+
+        else:
+            self.stand.initialize()
 
     def rewards_matrix(self):
         return self.rewards_matrix
