@@ -1,2 +1,4 @@
 __pycache__
 q_matrix.pkl
+.DS_Store
+.idea/*
